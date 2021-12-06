@@ -1,0 +1,228 @@
+*, *:before, *:after {
+    box-sizing: border-box; 
+  }
+  
+  body {
+    margin: 0;
+   line-height: 1.5em;
+  }
+  .content{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "header"
+    "main"
+    "footer"
+    "topnav";
+    color: white;
+  }
+  .topnav {
+   background: rgb(4, 4, 46) !important;
+   grid-area: topnav; 
+  }
+  .header {
+   background: darkred; 
+   grid-area: header;
+  }
+  .main{
+    display: grid;
+    grid-area: main;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "art1"
+    "as1"
+    "as2";
+  }
+  .footer {
+   background: rgb(168, 7, 7); 
+   grid-area: footer;
+  }
+  .footer a {
+    color: white;
+  }
+  .art1 {
+   background: rgb(122, 82, 22); 
+   grid-area: art1;
+  }
+  .as1 {
+   background: darkred; 
+   grid-area: as1;
+   color: white;
+  }
+  .as2 {
+   background: darkred; 
+   grid-area: as2;
+   color: white;
+  }
+  
+  .header,
+  .footer,
+  .art1,
+  .as1, 
+  .as2 {
+   padding: 1em; 
+  }
+  
+  .header h1 {
+   color: #fff;
+   line-height: 1.2;
+   font-weight: normal;
+  }
+  .art1 h2 {
+   margin: .7em 0 .8em 0;
+  }
+  .art1 h4 {
+   text-align: justify;
+   margin: .4em 0;
+  }
+  .art1 p {
+   text-align: justify;
+  }
+  
+  /* ========================================
+  Efnisyfirlit (mobile)
+  ======================================== */
+  .topnav {
+   background: #1c2d1c; 
+  }
+  .topmenu {
+   display: block;
+   padding: 0;
+   margin: 0;
+   list-style: none; 
+  }
+  .topmenu li {
+   border: 0; 
+   padding: 0;
+   margin:0;
+  }
+  .topmenu a {
+   display: block;     /* ath! */
+   color: white;
+   text-decoration: none;
+   text-align: center;
+   padding: .4em 1em; 
+  }
+  .topmenu a:hover,
+  .topmenu a:active,
+  .virkur {
+   color: rgb(35, 6, 1) !important;
+   background-color: red;
+  }
+  
+  /* =======================================
+     myndvinnsla  
+    ======================================== */
+  
+  /*  hafið myndir <img> alltaf í max-width: 100%; stærð 
+      munið að vinna og þjappa myndir í photoshop ! */
+  
+      img{
+        max-width: 100%;
+        height: auto;
+      }
+      figure{
+        margin: 0;
+        padding: 0;
+      }
+      .myndabox {
+        display: flex;
+        flex-flow: row wrap;
+      }
+      .myndabox img{
+        display: block;
+        border: 1px solid purple;
+      }
+  
+  
+  /*  ========================================
+  Viðmið - breakpoints 30em = 480px + 
+  ========================================*/
+  
+  @media screen and (min-width:30em){
+    .main {
+     grid-template-columns: 1fr 2fr;
+     grid-template-areas: 
+     "as1 art1"
+     "as2 art1";
+    }
+    .content{
+      max-width: 100%;
+    }
+  }
+  
+  
+  /*  ========================================
+  Viðmið - breakpoints 37.5em = 600px + 
+  ========================================*/
+  @media screen and (min-width:37.5em){
+    .main {
+     grid-template-columns: 1fr 2fr;
+     grid-template-areas: 
+     "as1 art1"
+     "as2 art1";
+    }
+  }
+  
+  /* ========================================
+  Viðmið - breakpoints 48em = 760px +
+  ======================================== */
+  
+  @media screen and (min-width:48em){
+    .content{
+     grid-template-areas: 
+     "topnav"
+     "header"
+     "main"
+     "footer";
+    }
+    .topmenu{
+     display: flex;
+     flex-flow:row ;
+     justify-content: center;
+    }
+    .topmenu li{
+      border: 0;
+    }
+    .topmenu li:last-child{
+      border: 0;
+    }
+    .topmenu a {
+      padding: .3em 2em;
+    }
+    .main {
+     grid-template-columns: 1fr 2fr 1fr;
+     grid-template-areas: 
+     "as1 art1 as2";
+    }
+  } 
+  
+  
+  /* ========================================
+  Viðmið - breakpoints 60em = 960px +
+  ======================================== */
+  
+  @media screen and (min-width:60em){
+    /*.content{
+      max-width: 60em;
+      margin: 0 auto;
+    }*/
+    .main{
+     grid-template-columns: 1fr 3fr 1fr;
+    }
+    .myndabox{
+     display: grid;
+     grid-template-columns: repeat(4,1fr);
+    }
+  }  
+  
+  /* ========================================
+  Viðmið - breakpoints 80em = 1280px +
+  ======================================== */
+  
+  @media screen and (min-width:80em){
+   /* .content{
+      max-width: 80em;
+      margin: 0 auto;
+    }*/
+  }  
